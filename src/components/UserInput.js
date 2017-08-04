@@ -10,14 +10,9 @@ class UserInput extends Component {
     }
   }
 
-  handleChangeUsername = (event) => {
+  handleChange = (event) => {
     this.setState({
-      username: event.target.value
-    })
-  }
-
-  handleChangeHometown = (event) => {
-    this.setState({
+      username: event.target.value,
       hometown: event.target.value
     })
   }
@@ -26,7 +21,7 @@ class UserInput extends Component {
     event.preventDefault()
     this.props.store.dispatch({
       type: 'ADD_USER',
-      user: this.state
+      user: {username: this.state.username, hometown: this.state.hometown}
     })
     this.setState({ 
       username:'',
@@ -38,8 +33,8 @@ class UserInput extends Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type='text' placeholder="username" onChange={this.handleChangeUsername}/>
-          <input type='text' placeholder="your hometown" onChange={this.handleChangeHometown} />
+          <input type='text' placeholder="username" onChange={this.handleChange}/>
+          <input type='text' placeholder="your hometown" onChange={this.handleChange} />
           <input type='submit'/>
         </form>
       </div>
