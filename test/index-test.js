@@ -6,7 +6,7 @@ import UserInput from '../src/components/UserInput';
 import { configureStore } from '../src/index.js';
 
 describe('store', () => {
-  
+
   let store = configureStore();
 
   it('returns the initial state after redux dispatches its initial action', () => {
